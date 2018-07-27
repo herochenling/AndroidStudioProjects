@@ -8,6 +8,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
+import android.widget.EditText;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -26,7 +28,24 @@ public class MainActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+
+
+        Button submitBtn = (Button) findViewById(R.id.submit_Btn);
+        submitBtn.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick (View view){
+                EditText firstNameEt = (EditText)findViewById(R.id.first_name_text);
+                String firstName = firstNameEt.getText().toString();
+                EditText lastNameEt = (EditText)findViewById(R.id.last_name_text);
+                String lastName = lastNameEt.getText().toString();
+
+                Snackbar.make(view, "Hello, "+ firstName + " " + lastName + " !", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
+            }
+        });
     }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
